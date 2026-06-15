@@ -360,14 +360,22 @@ void KickApi::sendMessage(uint64_t broadcasterUserID, const QString &message,
     this->postJson<Response>(
         u"chat"_s, json,
         [cb = std::move(cb)](const ExpectedStr<Response> &res) {
-            cb(res.and_then([](const Response res) {
-                if (res.isSent)
+            if (res.has_value())
+            {
+                const auto &response = *res;
+                if (response.isSent)
                 {
-                    return ExpectedStr<void>{};
+                    cb(ExpectedStr<void>{});
                 }
-                return ExpectedStr<void>{
-                    makeUnexpected(u"Message was not sent"_s)};
-            }));
+                else
+                {
+                    cb(makeUnexpected(u"Message was not sent"_s));
+                }
+            }
+            else
+            {
+                cb(makeUnexpected(res.error()));
+            }
         });
 }
 
