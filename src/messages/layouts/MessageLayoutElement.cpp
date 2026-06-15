@@ -471,9 +471,9 @@ void TextLayoutElement::paint(QPainter &painter,
                                             MessageElementFlag::Mention);
     bool drawPaint = isNametag && this->messageColor_ != MessageColor::System &&
                      getSettings()->displaySevenTVPaints;
-
+    
     if (isMention && (!getSettings()->colorUsernames ||
-                      !getSettings()->enablePaintsOnMentions))
+                    !getSettings()->enablePaintsOnMentions))
     {
         drawPaint = false;
     }
@@ -523,11 +523,11 @@ bool TextLayoutElement::paintAnimated(QPainter &painter, const qreal yOffset)
                                             MessageElementFlag::Mention);
     bool drawPaint = isNametag && getSettings()->displaySevenTVPaints;
     if (isMention && (!getSettings()->colorUsernames ||
-                      !getSettings()->enablePaintsOnMentions))
+                    !getSettings()->enablePaintsOnMentions))
     {
         drawPaint = false;
     }
-
+            
     if (!drawPaint)
     {
         return false;

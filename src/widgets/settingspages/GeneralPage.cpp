@@ -1486,7 +1486,7 @@ void GeneralPage::initLayout(GeneralPageView &layout)
         ->setTooltip("If Chatterino has seen a user, highlight @mention's of "
                      "them with their Twitch color.")
         ->addTo(layout);
-
+    
     SettingWidget::checkbox("Enable 7tv paints on @mentions",
                             s.enablePaintsOnMentions)
         ->setTooltip(
