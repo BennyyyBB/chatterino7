@@ -527,7 +527,7 @@ bool TextLayoutElement::paintAnimated(QPainter &painter, const qreal yOffset)
     {
         drawPaint = false;
     }
-     
+
     if (!drawPaint)
     {
         return false;
