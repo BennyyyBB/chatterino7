@@ -1487,8 +1487,10 @@ void GeneralPage::initLayout(GeneralPageView &layout)
                      "them with their Twitch color.")
         ->addTo(layout);
     
-    SettingWidget::checkbox("Enable 7tv paints on @mentions", s.enablePaintsOnMentions)
-        ->setTooltip("Show 7TV paints on @mentions if the mentioned user has any.")
+    SettingWidget::checkbox("Enable 7tv paints on @mentions",
+                            s.enablePaintsOnMentions)
+        ->setTooltip(
+            "Show 7TV paints on @mentions if the mentioned user has any.")
         ->addTo(layout);
 
     SettingWidget::checkbox("Try to find usernames without @ prefix",
